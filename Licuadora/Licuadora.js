@@ -23,9 +23,18 @@ function apagarLicuadora() {
 
 licuadora.addEventListener("click", function () {
     if (estadoLicuadora === "apagado") {
-        encederLicuadora()
+        encederLicuadora();
+        licuadora.classList.add("active");
+        botonLicuadora.play();
+        sonidoLicuadora.play()
+       
     } else {
-        apagarLicuadora()
+        apagarLicuadora();
+        licuadora.classList.remove("active");
+        botonLicuadora.play();
+        sonidoLicuadora.pause()
+        sonidoLicuadora.currentTime = 0;
+        
     }
 })
 

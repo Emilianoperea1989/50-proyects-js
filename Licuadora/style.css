@@ -1,12 +1,42 @@
-.titulo{
-    background-color: blue;
-    color: aquamarine;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.licuadora {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 500px;
+  background-image: url(../assets/licuadora.jpeg); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.zonaLicuadora{background-color: aqua;}
+.licuadora.active {
+  background-image: url(../assets/licuadoragif.gif);
+  animation: vibrateLicuadora 0.1s linear infinite; /* Agrega la animación al estado activo */
+}
 
-.encedido{
-    background-color: black;
-    width: 500px;
-  height: 500px;
+@keyframes vibrateLicuadora {
+  0% {
+    transform: translate(-50%, -50%) translateX(1px) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(-1px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(1px) rotate(0deg);
+  }
+}
+
+.botonEncendido{
+  margin: 363px auto 0px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }

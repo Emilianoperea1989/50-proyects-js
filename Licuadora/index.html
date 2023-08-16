@@ -10,14 +10,18 @@
 
 <body>
     <div class="container">
-        <h2 class="titulo">Licuadora</h2>
-        <div class="zonaLicuadora">
-            <img class="encedido" id="licuadora" src="../assets/licuadora.png" alt="licuadora">
-            <div > <audio id="boton" src="../assets/boton.mp3"></audio>
-                <audio id="sonido" src="../assets/sonidoLicuadora.mp3" type="audio/mpeg" loop></audio>
+            <div class="licuadora" id="licuadora" >
+                <div class="botonEncendido" id="interruptor"></div>
             </div>
+            <div> 
+                <audio id="boton" >
+                    <source src="../assets/boton.mp3" type="audio/mpeg"> 
+                </audio>
 
-        </div>
+                <audio id="sonido" >
+                    <source src="../assets/sonidoLicuadora.mp3" type="audio/mpeg">
+                </audio>
+            </div>
     </div>
     <script src="Licuadora.js"></script>
 </body>
