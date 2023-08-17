@@ -1,40 +1,22 @@
-
-
 let estadoLicuadora = "apagado";
-let licuadora = document.getElementById("licuadora");
+let botonEncendido = document.querySelector(".botonEncendido");
+let licuadora = document.querySelector(".licuadora");
 let botonLicuadora = document.getElementById("boton");
 let sonidoLicuadora = document.getElementById("sonido")
 
-
-function encederLicuadora() {
+botonEncendido.addEventListener("click", function () {
     if (estadoLicuadora === "apagado") {
-        estadoLicuadora = "encendido"
-        console.log("la licuadora esta encendida");
-    }
-}
-
-function apagarLicuadora() {
-    if (estadoLicuadora === "encendido") {
-        estadoLicuadora = "apagado"
-        console.log("la licuadora esta apagada");
-    }
-}
-
-
-licuadora.addEventListener("click", function () {
-    if (estadoLicuadora === "apagado") {
-        encederLicuadora();
+        estadoLicuadora = "encendido";
+        console.log("La licuadora está encendida");
         licuadora.classList.add("active");
         botonLicuadora.play();
-        sonidoLicuadora.play()
-       
+        sonidoLicuadora.play();
     } else {
-        apagarLicuadora();
+        estadoLicuadora = "apagado";
+        console.log("La licuadora está apagada");
         licuadora.classList.remove("active");
         botonLicuadora.play();
-        sonidoLicuadora.pause()
+        sonidoLicuadora.pause();
         sonidoLicuadora.currentTime = 0;
-        
     }
-})
-
+});
