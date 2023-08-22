@@ -6,51 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DynaPuff&family=Montserrat:wght@500&family=Permanent+Marker&family=Poppins&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DynaPuff&family=Montserrat:wght@500&family=Permanent+Marker&family=Poppins&family=Roboto+Slab&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Darkmode con javascript</title>
 </head>
 
 <body>
     <header>
-        <nav class="nav">
-            <h2 class="logo"> Logo</h2>
+        <nav class="nav" id="nav-id">
+            <h2 id="logo" class="logo"> Logo</h2>
             <ul class="lista">
                 <li>
-                    <a href="">Inicio</a>
+                    <a class="links" href="">Inicio</a>
                 </li>
                 <li>
-                    <a href="">Soporte</a>
+                    <a class="links" href="">Soporte</a>
                 </li>
                 <li>
-                    <a href="">Opiniones</a>
+                    <a class="links" href="">Opiniones</a>
                 </li>
-
+                <div class="switch-container">
+                    <label class="switch">
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
             </ul>
-            <label id="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
         </nav>
 
     </header>
 
     <div class="container">
-        <h2>Opiniones</h2>
+        <h2 id="titulo-opiniones">Opiniones</h2>
         <section>
-            <div class="targeta">
+            <div class="tarjeta">
                 <img class="rostro" src="../assets/img1.jpg" alt="">
                 <h4>Lily</h4>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus cupiditate eos rerum numquam, quidem
                 </p>
             </div>
-            <div class="targeta">
+            <div class="tarjeta">
                 <img class="rostro" src="../assets/img3.jpg" alt="">
                 <h4>Juan Pablo</h4>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus cupiditate eos rerum numquam, quidem
                 </p>
             </div>
-            <div class="targeta">
+            <div class="tarjeta">
                 <img class="rostro" src="../assets/img2.jpg" alt="">
                 <h4>Andrea</h4>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus cupiditate eos rerum numquam, quidem

@@ -20,3 +20,5 @@ botonEncendido.addEventListener("click", function () {
         sonidoLicuadora.currentTime = 0;
     }
 });
+
+
