@@ -6,31 +6,55 @@ const options = {
     }
 };
 
-fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
-    .then(response => response.json())
-    .then(data => {
-        const peliculas = data.results;
-        const baseImageUrl = 'https://image.tmdb.org/t/p/w500';
+let currentPage = 1;
 
-        // Obtener el contenedor en el DOM
-        const contenedor = document.getElementById('peliculas-container');
+function fetchMovies(page) {
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}`, options)
+        .then(response => response.json())
+        .then(data => {
+            const peliculas = data.results;
+            const baseImageUrl = 'https://image.tmdb.org/t/p/w500';
+            const contenedor = document.getElementById('peliculas-container');
 
-        peliculas.forEach(pelicula => {
-            // Crear elementos <div> e <img> dinámicamente
-            const peliculaDiv = document.createElement('div');
-            const imagen = document.createElement('img');
-            const titulo = document.createElement('h4');
-            
-            // Establecer atributos y contenido
-            peliculaDiv.classList.add('pelicula-item'); // Clase CSS para el estilo
-            imagen.src = baseImageUrl + pelicula.poster_path;
-            imagen.alt = pelicula.title;
-            titulo.textContent = pelicula.title;
+            contenedor.innerHTML = '';
 
-            // Agregar elementos al contenedor en el DOM
-            peliculaDiv.appendChild(imagen);
-            peliculaDiv.appendChild(titulo);
-            contenedor.appendChild(peliculaDiv);
-        });
+            peliculas.forEach(pelicula => {
+                const peliculaDiv = document.createElement('div');
+                const imagen = document.createElement('img');
+                const titulo = document.createElement('h4');
+
+                peliculaDiv.classList.add('pelicula-item');
+                imagen.src = baseImageUrl + pelicula.poster_path;
+                imagen.alt = pelicula.title;
+                titulo.textContent = pelicula.title;
+
+                peliculaDiv.appendChild(imagen);
+                peliculaDiv.appendChild(titulo);
+                contenedor.appendChild(peliculaDiv);
+            });
+        })
+        .catch(err => console.error(err));
+}
+const siguienteBtn = document.getElementById('siguiente-btn');
+siguienteBtn.addEventListener('click', () => {
+    currentPage++;
+    fetchMovies(currentPage);
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     })
-    .catch(err => console.error(err));
+
+});
+const atrasBtn = document.getElementById('atras-btn');
+atrasBtn.addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
+
+    fetchMovies(currentPage);
+})
+fetchMovies(currentPage);
