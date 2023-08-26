@@ -53,8 +53,6 @@ atrasBtn.addEventListener('click', () => {
             top: 0,
             behavior: 'smooth'
         })
-    }
-
-    fetchMovies(currentPage);
+    }else fetchMovies(currentPage);
 })
 fetchMovies(currentPage);
