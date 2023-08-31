@@ -8,6 +8,7 @@ const btnSiguiente = document.getElementById('btnSiguiente');
 const btnAtras = document.getElementById('btnAtras');
 const pasos = document.querySelectorAll('.paso');
 
+
 btnSiguiente.addEventListener("click", function() {
     if (valorActual < valorTotal) {
         valorActual++; 
@@ -16,6 +17,7 @@ btnSiguiente.addEventListener("click", function() {
         pasos.forEach(function(paso, index) {
             if (index <= valorActual) {
                 paso.style.borderColor = "rgb(0, 183, 255)";
+                
             } else {
                 paso.style.borderColor = "rgb(160, 156, 156)";
             }
@@ -37,5 +39,6 @@ btnAtras.addEventListener("click", function() {
                 paso.style.borderColor = "rgb(160, 156, 156)";
             }
         });
+        
     }
 });
